@@ -147,3 +147,32 @@ body {
   border-color: #dc2626;
   color: #fecaca;
 }
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* gauche = 1/3, droite = 2/3 */
+  gap: 2rem;
+}
+
+/* colonne gauche */
+.dashboard-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* colonne droite */
+.dashboard-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.list-item.selected {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #4caf50; /* vert */
+  padding-left: 0.75rem;
+}
+
+.list-item.clickable:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+}

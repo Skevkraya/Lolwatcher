@@ -14,21 +14,18 @@ type DashboardProps = {
 export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
   const [accounts, setAccounts] = useState<TrackedAccount[]>([]);
   const [matches, setMatches] = useState<MatchSummary[]>([]);
+  const [selectedAccountId, setSelectedAccountId] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
-  /** Fonction qui recharge toutes les données */
   const loadData = async () => {
     try {
       setLoading(true);
-
       const [acc, m] = await Promise.all([
         getTrackedAccounts(),
         getRecentMatches(),
       ]);
-
       setAccounts(acc);
       setMatches(m);
-
     } catch (err) {
       console.error("Erreur Dashboard :", err);
     } finally {
@@ -36,7 +33,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
     }
   };
 
-  /** Chargement initial */
   useEffect(() => {
     loadData();
   }, []);
@@ -45,29 +41,42 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
     return <div>Chargement du tableau de bord...</div>;
   }
 
+  const filteredMatches = selectedAccountId
+    ? matches.filter(m => Number(m.accountId) === selectedAccountId)
+    : matches;
+
   return (
     <div className="dashboard-layout">
-      
-      {/* SECTION AJOUT COMPTE LOL */}
-      <section>
-        <h2>Ajouter un compte LoL</h2>
-        <AddAccountForm
-          userId={Number(user.id)}          // maintenant correct !
-          onAdded={loadData}        // recharge après ajout
-        />
-      </section>
 
-      {/* SECTION COMPTES SUIVIS */}
-      <section>
-        <h2>Comptes suivis</h2>
-        <TrackedAccountsList accounts={accounts} />
-      </section>
+      {/* COLONNE GAUCHE */}
+      <div className="dashboard-left">
+        <section>
+          <h2>Ajouter un compte LoL</h2>
+          <AddAccountForm
+            userId={Number(user.id)}
+            onAdded={loadData}
+          />
+        </section>
 
-      {/* SECTION MATCHS */}
-      <section>
-        <h2>Activité récente</h2>
-        <ActivityList matches={matches} />
-      </section>
+        <section>
+          <h2>Comptes suivis</h2>
+          <TrackedAccountsList
+            accounts={accounts}
+            onSelect={setSelectedAccountId}
+            selectedId={selectedAccountId}
+          />
+
+        </section>
+      </div>
+
+      {/* COLONNE DROITE */}
+      <div className="dashboard-right">
+        <section>
+          <h2>Activité récente</h2>
+          <ActivityList matches={filteredMatches} />
+        </section>
+      </div>
+
     </div>
   );
 };

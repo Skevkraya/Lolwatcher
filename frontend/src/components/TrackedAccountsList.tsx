@@ -1,10 +1,12 @@
 import React from 'react';
 
 interface Props {
-  accounts: any[]; // TEMPORAIRE : le temps d’ajuster les types
+  accounts: any[];
+  onSelect: (id: number) => void;
+  selectedId: number | null;
 }
 
-export const TrackedAccountsList: React.FC<Props> = ({ accounts }) => {
+export const TrackedAccountsList: React.FC<Props> = ({ accounts, onSelect, selectedId }) => {
   if (!accounts.length) {
     return <p>Aucun compte suivi pour le moment.</p>;
   }
@@ -12,18 +14,16 @@ export const TrackedAccountsList: React.FC<Props> = ({ accounts }) => {
   return (
     <ul className="list">
       {accounts.map((acc) => (
-        <li key={acc.id} className="list-item">
+        <li
+          key={acc.id}
+          className={`list-item clickable ${selectedId === acc.id ? "selected" : ""}`}
+          onClick={() => onSelect(acc.id)}
+        >
           <div>
             <strong>
-              {acc.gameName}#{acc.tagLine}  
-            </strong>{' '}
+              {acc.gameName}#{acc.tagLine}
+            </strong>{" "}
             ({acc.region})
-          </div>
-          <div>
-            Statut :{' '}
-            <span className="badge badge-green">
-              Actif   
-            </span>
           </div>
         </li>
       ))}

@@ -1,0 +1,40 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id       Int              @id @default(autoincrement())
+  email    String           @unique
+  password String
+  accounts TrackedAccount[]
+}
+
+model TrackedAccount {
+  id       Int    @id @default(autoincrement())
+  gameName String
+  tagLine  String
+  region   String
+  puuid    String
+  userId   Int
+  user     User   @relation(fields: [userId], references: [id])
+
+  matches Match[]
+}
+
+model Match {
+  id       Int      @id @default(autoincrement())
+  champion String
+  kills    Int
+  deaths   Int
+  assists  Int
+  result   String
+  playedAt DateTime
+
+  accountId Int
+  account   TrackedAccount @relation(fields: [accountId], references: [id])
+}
