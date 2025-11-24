@@ -43,7 +43,7 @@ const App: React.FC = () => {
         </div>
       </header>
       <main className="app-main">
-        <Dashboard />
+        <Dashboard user={user} onLogout={handleLogout} />
       </main>
     </div>
   );
