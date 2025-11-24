@@ -1,36 +1,60 @@
-import React, { useState } from "react";
-import { login, type User } from "../api/mockApi";
-
-type LoginFormProps = {
+import React, { useState } from 'react';
+import { login } from '../api/mockApi';
+import type { User } from '../api/mockApi';
+interface LoginFormProps {
   onLoginSuccess: (user: User) => void;
-};
+}
 
-export const LoginForm = ({ onLoginSuccess }: LoginFormProps) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const user = await login(username, password);
-    if (user) onLoginSuccess(user);
+    setError(null);
+    setLoading(true);
+    try {
+      const user = await login(email, password);
+      onLoginSuccess(user);
+    } catch (err: any) {
+      setError(err.message ?? 'Erreur de connexion');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Nom d’utilisateur"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Mot de passe"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Se connecter</button>
-    </form>
+    <div className="card">
+      <h2>Connexion</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <label>
+          E-mail
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+
+        <label>
+          Mot de passe
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+
+        {error && <div className="error">{error}</div>}
+
+        <button type="submit" disabled={loading}>
+          {loading ? 'Connexion...' : 'Se connecter'}
+        </button>
+      </form>
+    </div>
   );
 };
