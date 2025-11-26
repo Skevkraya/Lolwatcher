@@ -50,3 +50,28 @@ export async function addAccount(gameName: string, tagLine: string, region: stri
 
   return res.json();
 }
+export async function getUserSettings() {
+  const res = await fetch("http://localhost:3001/user/settings");
+  return res.json();
+}
+
+export async function updateUserSettings(settings) {
+  const res = await fetch("http://localhost:3001/user/settings", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(settings)
+  });
+
+  if (!res.ok) throw new Error("Erreur settings");
+  return res.json();
+}
+
+export async function updateAccountAlerts(id: number, enabled: boolean) {
+  const res = await fetch(`http://localhost:3001/accounts/${id}/alerts`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ enabled })
+  });
+
+  return res.json();
+}

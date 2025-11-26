@@ -3,10 +3,12 @@ import { getCurrentUser, logout } from './api/mockApi';
 import type { User } from './api/mockApi';
 import { LoginForm } from './components/LoginForm';
 import { Dashboard } from './components/Dashboard';
+import { Settings } from './components/Settings';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loadingUser, setLoadingUser] = useState(true);
+  const [page, setPage] = useState<"dashboard" | "settings">("dashboard");
 
   useEffect(() => {
     (async () => {
@@ -37,13 +39,35 @@ const App: React.FC = () => {
     <div className="app-shell">
       <header className="app-header">
         <h1>LoL Activity Watcher</h1>
+
         <div className="app-header-right">
+
+          {/* 🔥 Bouton pour aller à Settings */}
+          <button onClick={() => setPage("settings")}>
+            ⚙️ Paramètres
+          </button>
+
           <span>Connecté en tant que {user.displayName}</span>
+
           <button onClick={handleLogout}>Se déconnecter</button>
         </div>
       </header>
+
       <main className="app-main">
-        <Dashboard user={user} onLogout={handleLogout} />
+
+        {page === "dashboard" && (
+          <Dashboard
+            user={user}
+            onLogout={handleLogout}
+          />
+        )}
+
+        {page === "settings" && (
+          <Settings
+            onBack={() => setPage("dashboard")}
+          />
+        )}
+
       </main>
     </div>
   );

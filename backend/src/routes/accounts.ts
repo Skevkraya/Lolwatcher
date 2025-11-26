@@ -71,4 +71,48 @@ router.post("/", async (req, res) => {
   }
 });
 
+/* Supprimer un compte suivi */
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    // 1️⃣ Supprimer d'abord les matchs liés
+    await prisma.match.deleteMany({
+      where: { accountId: id }
+    });
+
+    // 2️⃣ Supprimer ensuite le compte
+    await prisma.trackedAccount.delete({
+      where: { id }
+    });
+
+    res.json({ success: true });
+
+  } catch (e) {
+    console.error("Erreur DELETE /accounts/:id :", e);
+    res.status(500).json({ error: "Impossible de supprimer ce compte" });
+  }
+});
+
+router.put("/:id/alerts", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const { enabled } = req.body;
+
+    const updated = await prisma.trackedAccount.update({
+      where: { id },
+      data: {
+        alertsEnabled: !!enabled
+      }
+    });
+
+    res.json(updated);
+
+  } catch (e) {
+    console.error("Erreur PUT /accounts/:id/alerts :", e);
+    res.status(500).json({ error: "Impossible de modifier l'état des alertes." });
+  }
+});
+
+
 export default router;

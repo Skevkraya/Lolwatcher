@@ -64,8 +64,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             accounts={accounts}
             onSelect={setSelectedAccountId}
             selectedId={selectedAccountId}
+            onDeleted={loadData}      
           />
-
         </section>
       </div>
 

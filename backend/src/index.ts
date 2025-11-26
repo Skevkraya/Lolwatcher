@@ -15,10 +15,14 @@ app.use(express.json());
 import authRoutes from "./routes/auth";
 import accountRoutes from "./routes/accounts";
 import matchRoutes from "./routes/matches";
+import userRoutes from "./routes/user";
+
 
 app.use("/auth", authRoutes);
 app.use("/accounts", accountRoutes);
 app.use("/matches", matchRoutes);
+app.use("/user", userRoutes);
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`));
