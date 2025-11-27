@@ -20,6 +20,9 @@
                                                                                                                                                                                                                 
 ```                                                                                           
                                                                                            
+Vérifier dans le .env que la clé API est encore valide 
+Il faut la générer ici  : https://developer.riotgames.com/ 
+(Un compte Riot est nécessaire)
                                                           
 <div align="center">
 
