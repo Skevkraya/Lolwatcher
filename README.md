@@ -35,7 +35,7 @@
 
 
 
-## 📝 Présentation du projet
+## | Présentation du projet
 
 **LolWatcher** est une application web permettant de surveiller en temps réel l’activité de joueurs **League of Legends** grâce à l’API Riot Games.
 
@@ -56,7 +56,7 @@ Le projet inclut :
 
 
 
-# 🎯 Objectifs
+# | Objectifs
 
 - Ajouter plusieurs comptes LoL à surveiller  
 - Détecter automatiquement les nouvelles parties  
@@ -68,16 +68,16 @@ Le projet inclut :
 
 
 
-# 🚀 Fonctionnalités principales
+# | Fonctionnalités principales
 
-## 👤 Utilisateur
+## | Utilisateur
 - Création de compte + vérification e-mail  
 - Connexion sécurisée (JWT)  
 - Gestion du profil (email, fuseau horaire, pseudo affiché)  
 - Paramètres d’alertes (email, SMS, fenêtre silencieuse)  
 
 
-## 🎮 Comptes LoL suivis
+## | Comptes LoL suivis
 - CRUD complet sur les comptes suivis  
 - Validation RiotID  
 - Historique des matchs  
@@ -85,14 +85,14 @@ Le projet inclut :
 - Top statistiques des derniers matchs  
 
 
-## 🔔 Notifications
+## | Notifications
 - Envoi automatique email / SMS  
 - Respect de la fenêtre silencieuse  
 - Journalisation  
 - Gestion des échecs d’envoi  
 
 
-## 💳 Abonnements Stripe
+## | Abonnements Stripe
 
 | Plan | Comptes suivis | SMS Alerts | Prix |
 |------|----------------|------------|------|
@@ -102,7 +102,7 @@ Le projet inclut :
 
 
 
-# 🧠 Stack technique
+# | Stack technique
 ```
 Frontend : React + Vite + Tailwind + TypeScript
 Backend : Node.js + Express
@@ -114,7 +114,7 @@ API : Riot Developer API (Summoner, Match-V5)
 
 
 
-# 📁 Structure du projet
+# | Structure du projet
 ```
 /backend
 ├─ prisma/
@@ -136,7 +136,7 @@ API : Riot Developer API (Summoner, Match-V5)
 
 
 
-# 🧬 UML (dans /uml)
+# | UML (dans /uml)
 ```
 - Diagrammes de cas d'utilisation  
 - Diagramme de classes (détaillé)  
@@ -153,7 +153,7 @@ API : Riot Developer API (Summoner, Match-V5)
 
 
 
-# ⚙️ Installation et lancement
+# | Installation et lancement
 
 ## 1) Cloner
 ```bash
@@ -182,7 +182,7 @@ npm run dev
 ➡ http://localhost:5173/
 ```
 
-🤝 Auteur
+ | Auteur
 Augustin DESOMBRE, Pierre CERVI, Terry PASSAVE
 
 Projet réalisé dans le cadre du module UML à l'ESGI.
