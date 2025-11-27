@@ -3,15 +3,23 @@
 Projet UML + Développement Full-Stack (Frontend • API • BDD)
 
 
-
- __       _____   __       __      __  ______  ______  ____     __  __  ____    ____       
-/\ \     /\  __`\/\ \     /\ \  __/\ \/\  _  \/\__  _\/\  _`\  /\ \/\ \/\  _`\ /\  _`\     
-\ \ \    \ \ \/\ \ \ \    \ \ \/\ \ \ \ \ \L\ \/_/\ \/\ \ \/\_\\ \ \_\ \ \ \L\_\ \ \L\ \   
- \ \ \  __\ \ \ \ \ \ \  __\ \ \ \ \ \ \ \  __ \ \ \ \ \ \ \/_/_\ \  _  \ \  _\L\ \ ,  /   
-  \ \ \L\ \\ \ \_\ \ \ \L\ \\ \ \_/ \_\ \ \ \/\ \ \ \ \ \ \ \L\ \\ \ \ \ \ \ \L\ \ \ \\ \  
-   \ \____/ \ \_____\ \____/ \ `\___x___/\ \_\ \_\ \ \_\ \ \____/ \ \_\ \_\ \____/\ \_\ \_\
-    \/___/   \/_____/\/___/   '\/__//__/  \/_/\/_/  \/_/  \/___/   \/_/\/_/\/___/  \/_/\/ /
-                                                                                           
+```                                                                                                                      
+                   :                                                                                                    
+                  t#,                                                               .,                     ,;           
+             i   ;##W.             i                                               ,Wt .    .            f#i j.         
+            LE  :#L:WE            LE             ;                .. GEEEEEEEL    i#D. Di   Dt         .E#t  EW,        
+           L#E .KG  ,#D          L#E           .DL               ;W, ,;;L#K;;.   f#f   E#i  E#i       i#W,   E##j       
+          G#W. EE    ;#f        G#W.   f.     :K#L     LWL      j##,    t#E    .D#i    E#t  E#t      L#D.    E###D.     
+         D#K. f#.     t#i      D#K.    EW:   ;W##L   .E#f      G###,    t#E   :KW,     E#t  E#t    :K#Wfff;  E#jG#W;    
+        E#K.  :#G     GK      E#K.     E#t  t#KE#L  ,W#;     :E####,    t#E   t#f      E########f. i##WLLLLt E#t t##f   
+      .E#E.    ;#L   LW.    .E#E.      E#t f#D.L#L t#K:     ;W#DG##,    t#E    ;#G     E#j..K#j...  .E#L     E#t  :K#E: 
+     .K#E       t#f f#:    .K#E        E#jG#f  L#LL#G      j###DW##,    t#E     :KE.   E#t  E#t       f#E:   E#KDDDD###i
+    .K#D         f#D#;    .K#D         E###;   L###j      G##i,,G##,    t#E      .DW:  E#t  E#t        ,WW;  E#f,t#Wi,,,
+   .W#G           G#t    .W#G          E#K:    L#W;     :K#K:   L##,    t#E        L#, f#t  f#t         .D#; E#t  ;#W:  
+  :W##########Wt   t    :W##########Wt EG      LE.     ;##D.    L##,     fE         jt  ii   ii           tt DWi   ,KK: 
+  :,,,,,,,,,,,,,.       :,,,,,,,,,,,,,.;       ;@      ,,,      .,,       :                                             
+                                                                                                                                                                                                                
+```                                                                                           
                                                                                            
                                                           
 <div align="center">
@@ -100,7 +108,7 @@ API : Riot Developer API (Summoner, Match-V5)
 ---
 
 # 📁 Structure du projet
-
+```
 /backend
 ├─ prisma/
 ├─ src/
@@ -117,7 +125,7 @@ API : Riot Developer API (Summoner, Match-V5)
 │ ├─ App.tsx
 │ ├─ main.tsx
 └─ index.html
-
+```
 ---
 
 # 🧬 UML (dans /uml)
