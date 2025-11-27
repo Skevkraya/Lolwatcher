@@ -32,7 +32,7 @@
 
 </div>
 
----
+
 
 
 ## 📝 Présentation du projet
@@ -53,7 +53,7 @@ Le projet inclut :
 - un système d’abonnement Stripe (Free / Premium)
 - un poller automatique interrogeant l’API Riot
 
----
+
 
 
 # 🎯 Objectifs
@@ -65,7 +65,7 @@ Le projet inclut :
 - Gérer les abonnements (Stripe) et limites d’utilisation  
 - Proposer une interface claire (React + Tailwind)
 
----
+
 
 
 # 🚀 Fonctionnalités principales
@@ -99,7 +99,7 @@ Le projet inclut :
 | 🆓 Free | 3 | ❌ | 0€ |
 | ⭐ Premium | 10 | ✔️ | abonnement |
 
----
+
 
 
 # 🧠 Stack technique
@@ -111,7 +111,7 @@ Database : MySQL
 Services : Stripe, SMTP, SMS Provider
 API : Riot Developer API (Summoner, Match-V5)
 ```
----
+
 
 
 # 📁 Structure du projet
@@ -133,7 +133,7 @@ API : Riot Developer API (Summoner, Match-V5)
 │ ├─ main.tsx
 └─ index.html
 ```
----
+
 
 
 # 🧬 UML (dans /uml)
@@ -150,7 +150,7 @@ API : Riot Developer API (Summoner, Match-V5)
   - Tableau de bord  
 - Diagrammes d’objets  
 ```
----
+
 
 
 # ⚙️ Installation et lancement
