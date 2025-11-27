@@ -8,7 +8,7 @@ const router = Router();
 // GET user settings
 router.get("/settings", async (req, res) => {
   try {
-    const userId = 1; // ⚠️ À remplacer si tu as une auth plus tard
+    const userId = 1;
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
@@ -28,7 +28,7 @@ router.get("/settings", async (req, res) => {
 // UPDATE settings
 router.put("/settings", async (req, res) => {
   try {
-    const userId = 1; // ⚠️ à changer si auth
+    const userId = 1; // 
 
     const { email, phone } = req.body;
 
