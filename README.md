@@ -1,200 +1,203 @@
-LolWatcher – Application de veille d’activité League of Legends
+🧿 LolWatcher — Application de veille d’activité League of Legends
 
-LolWatcher est une application full-stack permettant de surveiller l’activité de joueurs League of Legends.
-L’utilisateur enregistre une liste de comptes Riot, et l’application détecte automatiquement les nouvelles parties jouées, puis envoie des alertes par email ou SMS.
-
-- Fonctionnalités principales
-
-
-- Gestion compte utilisateur
-
-Création de compte
-
-Connexion / déconnexion (JWT)
-
-Vérification email
-
-Gestion profil (nom d’affichage, fuseau horaire)
+Projet de fin de module — UML + Développement Full-Stack
 
 
 
-- Suivi de comptes LoL
+📌 Présentation du projet
 
-Ajouter / supprimer des pseudos Riot
+LolWatcher est une web-app permettant de surveiller l’activité de plusieurs comptes League of Legends.
+Dès qu’un joueur suivi commence ou termine une partie, l’application peut envoyer une alerte e-mail et/ou SMS.
 
-Stockage des comptes suivis en base
+Le projet inclut :
 
-Limite selon abonnement
+une stack complète (front + API + BDD)
 
-Validation automatique via Riot API
+une modélisation UML avancée
 
+une intégration de l’API Riot Games (matchs, comptes, région, tags)
 
-
-- Détection d’activité Riot
-
-Polling régulier de l’API RiotGames
-
-Détection des nouvelles parties
-
-Récupération des participants & stats
-
-Historique complet des games
+un système d’abonnement Stripe pour débloquer plus de fonctionnalités
 
 
 
-- Notifications
+🎯 Objectifs
 
-Alertes email
+Permettre à un utilisateur d’ajouter plusieurs comptes LoL à surveiller
 
-Alertes SMS
+Détecter automatiquement les nouvelles parties (polling Riot API)
 
-Fenêtre silencieuse configurable
+Envoyer des alertes (mail/SMS) basées sur ses préférences
 
-Throttling + statut des messages
+Offrir un tableau de bord d’activité complet
 
-
-
-- Dashboard
-
-Liste des games récentes
-
-Statistiques Co-Play (teammates récurrents)
-
-Filtres par file, région, résultat
-
-Timeline de l’activité
+Gérer les abonnements et limitations (Free / Premium)
 
 
 
-- "Abonnement" Stripe
+🚀 Fonctionnalités principales
+👤 Utilisateur
 
-Plan gratuit : limité
+Création de compte + vérification e-mail
 
-Plan payant : jusqu’à 10 comptes suivis
+Connexion sécurisée (JWT)
 
-Webhooks Stripe pour mise à jour automatique
+Gestion du profil (email, fuseau horaire, préférences d’alertes)
 
+🎮 Comptes LoL surveillés
 
+Ajout d’un compte par Riot ID (Nom#TAG)
 
-- Architecture technique
-Frontend : React + TypeScript + Vite
-Backend  : Node.js + Express
-ORM      : Prisma
-BDD      : MySQL
-API ext. : Riot Games API
-Notif    : Fournisseur Email + Fournisseur SMS
-Paiement : Stripe Checkout + Webhooks
+Suppression / mise à jour du suivi
 
+Affichage :
 
+matches récents
 
-- Structure du projet
-Lolwatcher/
-│
-├── backend/
-│   ├── prisma/            -> schéma Prisma + migrations
-│   ├── src/
-│   │   ├── routes/        -> routes API (auth, accounts, matches…)
-│   │   ├── services/      -> logique métier (riot, notif, stripe…)
-│   │   ├── models/        -> modèles Prisma
-│   │   └── index.ts       -> serveur Express
-│   ├── package.json
-│
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── api/           -> appels API
-│   │   ├── components/    -> UI React
-│   │   ├── App.tsx
-│   │   └── main.tsx
-│   ├── package.json
-│
-└── docs/
-    └── uml/               -> tous les diagrammes UML (.png + .plantuml)
+statistiques partenaires
+
+fréquence de jeu
 
 
 
-- Installation & Lancement
-1. Cloner le repository
-git clone https://github.com/votreUser/Lolwatcher.git
+🔔 Notifications
+
+Alerte en cas de nouvelle partie détectée
+
+Emails + SMS (selon abonnement)
+
+Fenêtre silencieuse configurable (ex : 23h–7h)
+
+
+
+💳 Abonnements (Stripe)
+
+Plan Free : 3 comptes surveillés
+
+Plan Premium : jusqu’à 10 comptes
+
+Gestion automatique via webhooks Stripe
+
+
+
+🧩 Architecture générale
+Frontend (React + Vite + TypeScript)
+    ↳ Authentification
+    ↳ Dashboard activité
+    ↳ Gestion des comptes suivis
+
+Backend (Node.js + Express + Prisma)
+    ↳ Auth API
+    ↳ Riot API client
+    ↳ Notifications
+    ↳ Abonnements Stripe
+
+Base de données : MySQL
+
+Services externes :
+    ↳ Riot Games API
+    ↳ SMTP (emails)
+    ↳ SMS provider
+    ↳ Stripe Checkout
+
+
+
+🗄️ Modèle de données (Prisma)
+
+Les tables principales (schema.prisma) :
+
+User
+
+TrackedAccount
+
+Match
+
+Participant
+
+Subscription
+
+Notification
+
+Preferences
+
+➡️ Voir le répertoire backend/prisma/.
+
+📂 Structure du projet
+Backend
+backend/
+  prisma/
+  src/
+    models/
+    routes/
+    services/
+    index.ts
+
+Frontend
+frontend/
+  public/
+  src/
+    api/
+    components/
+    App.tsx
+
+
+
+🧪 Diagrammes UML
+
+Tous les diagrammes (cas d’utilisation, classes, séquence, objets) sont disponibles dans le dossier :
+
+/uml
+
+
+Exemples inclus :
+
+Diagramme de cas d’utilisation complet
+
+Diagrammes de séquence (connexion, abonnement, notification, polling Riot, tableau de bord…)
+
+Diagrammes d’objets
+
+Diagramme de classes final
+
+🔧 Installation & lancement
+1) Cloner le projet
+git clone https://github.com/Skevkraya/Lolwatcher.git
 cd Lolwatcher
 
-
-
-- Backend
-Installer les dépendances
+2) Lancer le backend
 cd backend
 npm install
-
-Configurer l'environnement
-
-Créer un fichier .env :
-
-DATABASE_URL="mysql://user:password@localhost:3306/lolwatcher"
-RIOT_API_KEY="..."
-JWT_SECRET="..."
-EMAIL_API_KEY="..."
-SMS_API_KEY="..."
-STRIPE_SECRET_KEY="..."
-STRIPE_WEBHOOK_SECRET="..."
-
-Lancer la base & migrations Prisma
 npx prisma migrate dev
-
-Démarrer le serveur
 npm run dev
 
 
+Assure-toi d’avoir un .env contenant :
 
-- Frontend
+DATABASE_URL="mysql://..."
+RIOT_API_KEY="..."
+STRIPE_SECRET_KEY="..."
+SMTP_HOST="..."
+
+3) Lancer le frontend
 cd frontend
 npm install
 npm run dev
 
-L’application tourne alors sur :
-👉 http://localhost:5173
+
+L’application sera accessible sur :
+👉 http://localhost:5173/
 
 
-- Documentation UML
 
-Tous les diagrammes UML sont dans :
-📁 docs/uml/
-
-Contient :
-
-Diagramme de cas d’utilisation
-
-Diagramme de classes
-
-Diagrammes de séquence (7+)
-
-Diagrammes d’objets
-
-Architecture technique
+🧪 Tests (optionnel)
+npm run test
 
 
-- Tests
 
-(Optionnel mais recommandé)
-Décrit ici vos tests unitaires ou e2e s'il y en a.
+🤝 Contributeurs
 
+Projet réalisé par :
+Augustin DESOMBRE, Pierre CERVI, Terry PASSAVE
+📜 Licence
 
-- Déploiement
-
-Une configuration Docker ou un workflow GitHub Actions peut être ajouté pour automatiser le déploiement.
-
-
-- Roadmap
-
-App mobile
-
-Analyse avancée du gameplay
-
-Notifications Discord / Telegram
-
-Machine learning de prédiction
-
-
-- Contact
-
-Projet LOLWATCHER UML – 2025
-Développé par : Augustin  DESOMBRE, Pierre CERVI, Terry PASSAVE
+Projet à usage pédagogique — non destiné à la mise en production commerciale.
