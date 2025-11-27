@@ -96,8 +96,8 @@ Le projet inclut :
 
 | Plan | Comptes suivis | SMS Alerts | Prix |
 |------|----------------|------------|------|
-| 🆓 Free | 3 | ❌ | 0€ |
-| ⭐ Premium | 10 | ✔️ | abonnement |
+|  Free | 3 | NON | 0€ |
+|  Premium | 10 | OUI | abonnement |
 
 
 
