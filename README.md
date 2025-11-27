@@ -103,14 +103,14 @@ Le projet inclut :
 
 
 # 🧠 Stack technique
-
+```
 Frontend : React + Vite + Tailwind + TypeScript
 Backend : Node.js + Express
 ORM : Prisma
 Database : MySQL
 Services : Stripe, SMTP, SMS Provider
 API : Riot Developer API (Summoner, Match-V5)
-
+```
 ---
 
 
@@ -137,7 +137,7 @@ API : Riot Developer API (Summoner, Match-V5)
 
 
 # 🧬 UML (dans /uml)
-
+```
 - Diagrammes de cas d'utilisation  
 - Diagramme de classes (détaillé)  
 - Diagrammes de séquence :  
@@ -149,7 +149,7 @@ API : Riot Developer API (Summoner, Match-V5)
   - Abonnement Stripe  
   - Tableau de bord  
 - Diagrammes d’objets  
-
+```
 ---
 
 
@@ -180,9 +180,9 @@ cd frontend
 npm install
 npm run dev
 ➡ http://localhost:5173/
-
+```
 
 🤝 Auteur
-👤 Augustin DESOMBRE, Pierre CERVI, Terry PASSAVE
+Augustin DESOMBRE, Pierre CERVI, Terry PASSAVE
 
 Projet réalisé dans le cadre du module UML à l'ESGI.
