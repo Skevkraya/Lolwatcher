@@ -1,0 +1,34 @@
+services:
+  backend:
+    image: pcervi/lolwatcher-backend:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: lolwatcher-backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3001:3001"
+    networks:
+      - lolwatcher-network
+    volumes:
+      - ./backend/prisma/dev.db:/app/prisma/dev.db:Z
+
+  frontend:
+    image: pcervi/lolwatcher-frontend:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: lolwatcher-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://backend:4000
+    depends_on:
+      - backend
+    networks:
+      - lolwatcher-network
+
+networks:
+  lolwatcher-network:
+    driver: bridge
