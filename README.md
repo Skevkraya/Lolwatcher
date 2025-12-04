@@ -187,5 +187,3 @@ npm run dev
 
  | Auteur
 Augustin DESOMBRE, Pierre CERVI, Terry PASSAVE
-
-Projet réalisé dans le cadre du module UML à l'ESGI.
